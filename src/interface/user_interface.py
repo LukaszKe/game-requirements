@@ -1,4 +1,5 @@
 import eel
+import json
 
 from manager.application_manager import ApplicationManager
 
@@ -9,12 +10,12 @@ def init():
     global application_manager
     application_manager = ApplicationManager()
     eel.init('web')
-    eel.start('index.html')
+    eel.start('html/index.html')
 
 
 @eel.expose
-def get_game_by_title(title):
-    application_manager.get_game_by_title(title)
+def get_game_by_title(title=None):
+    return json.dumps(application_manager.get_game_by_title(title).__dict__)
 
 
 @eel.expose

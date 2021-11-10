@@ -6,12 +6,14 @@ class ApplicationManager:
     api: RequirementsApiCommunication
     games: list
 
-    def post_game_title(self, title):
-        self.title = title
+    def __init__(self):
         self.api = RequirementsApiCommunication()
         self.games = self.api.get_games()
 
-    def get_game_title(self, title):
+    def post_game_title(self, title):
+        self.title = title
+
+    def get_game_by_title(self, title):
         if title is None:
             title = self.title
 
