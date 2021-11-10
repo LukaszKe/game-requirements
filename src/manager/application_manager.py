@@ -1,4 +1,4 @@
-from api.requirment_api_communication import RequirementsApiCommunication
+from api.requirements_api_communication import RequirementsApiCommunication
 
 
 class ApplicationManager:
