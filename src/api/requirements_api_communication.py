@@ -3,6 +3,7 @@ import requests
 from model.game_item import GameItem
 from model.game import Game
 
+
 class RequirementsApiCommunication:
     LIST_URL = 'http://api.steampowered.com/ISteamApps/GetAppList/v0002'
     DETAILS = 'http://store.steampowered.com/api/appdetails?l=polish&appids='

@@ -6,6 +6,7 @@ from entity.cpu import CPU
 
 
 class DatabaseManager:
+    session: None
 
     def __init__(self):
         engine = create_engine('sqlite:///hardware.db', echo=True)
