@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jumbotron example · Bootstrap v5.1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  </head>
+  <body>  
+    <main>
+      <div class="container py-5 px-5">
+        <header class="pb-3 mb-4 border-bottom text-center h1">
+          <p>It works</p>
+        </header>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col g-0 border rounded overflow-hidden flex-md-row shadow-sm position-relative" style="height:100%">
+                    <div class="row h-30">
+                        <img id="gameImage" src="" width="100%"/>
+                    </div>
+                    <div class="row h-60 p-5 d-flex flex-column">
+                        <strong class="d-inline-block mb-2 text-primary" id="gameGenre">Genre</strong>
+                        <h3 class="mb-0" id="gameTitle">Game title</h3>
+                        <div class="mb-1 text-muted" id="gameYear">Year</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+            <div class="h-30 p-5 bg-light border rounded-3">
+              <h2>Your hardware</h2>
+              <div class="row">
+                <div class="col" id="userGraphics"></div>
+                <div class="col" id="userMemory"></div>
+                <div class="w-100"></div>
+                <div class="col" id="userProcessor"></div>
+                <div class="col" id="userSpace"></div>
+              </div>
+            </div>
+            <div class="h-30 p-5 bg-light border rounded-3">
+              <h2>Minimal Requirements</h2>
+              <div class="row">
+                <div class="col" id="minimalGraphics"></div>
+                <div class="col" id="minimalMemory"></div>
+                <div class="w-100"></div>
+                <div class="col" id="minimalProcessor"></div>
+                <div class="col" id="minimalSpace"></div>
+              </div>
+            </div>
+            <div class="h-30 p-5 bg-light border rounded-3">
+              <h2>Recommended Requirements</h2>
+              <div class="row">
+                <div class="col" id="recommendedGraphics"></div>
+                <div class="col" id="recommendedMemory"></div>
+                <div class="w-100"></div>
+                <div class="col" id="recommendedProcessor"></div>
+                <div class="col" id="recommendedSpace"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
