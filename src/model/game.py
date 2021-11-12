@@ -1,4 +1,4 @@
-from model.game_requirements import GameRequirements
+from model.components import Components
 
 
 class Game:
@@ -6,8 +6,8 @@ class Game:
     is_free: bool
     short_description: str
     header_image: str  # url
-    pc_requirements_minimum: GameRequirements
-    pc_requirements_recommended: GameRequirements
+    pc_requirements_minimum: Components
+    pc_requirements_recommended: Components
     publishers: list
     price: str
     metacritic_score: int
