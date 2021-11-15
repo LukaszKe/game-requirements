@@ -21,3 +21,8 @@ def get_game_by_title(title=None):
 @eel.expose
 def post_game_title(title):
     application_manager.post_game_title(title)
+
+
+@eel.expose
+def get_user_components():
+    return application_manager.user_components

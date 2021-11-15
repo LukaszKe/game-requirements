@@ -1,4 +1,6 @@
 from api.game_info_api import GameInfoApi
+import hardware.hardware_reader as hardware_reader
+from model.components import Components
 import web_scraper.gry_online_scraper as scraper
 
 
@@ -6,10 +8,12 @@ class ApplicationManager:
     title: str
     api: GameInfoApi
     games: list
+    user_components: Components
 
     def __init__(self):
         self.api = GameInfoApi()
         self.games = self.api.get_games()
+        self.user_components = hardware_reader.get_components()
 
     def post_game_title(self, title):
         self.title = title
