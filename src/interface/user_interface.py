@@ -15,7 +15,7 @@ def init():
 
 @eel.expose
 def get_game_by_title(title=None):
-    return json.dumps(application_manager.get_game_by_title(title).__dict__)
+    return json.dumps(application_manager.get_game_by_title(title), default=lambda o: getattr(o, '__dict__', str(o)))
 
 
 @eel.expose
