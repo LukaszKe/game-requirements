@@ -4,7 +4,7 @@ eel.get_game_by_title()(x => {
     console.log(game)
     document.getElementById('gameImage').src = game.header_image;
     document.getElementById('gameTitle').innerHTML = game.name;
-    document.getElementById('gameGenre').innerHTML = game.categories.length > 0 ? game.categories[0] : '';
+    document.getElementById('gameGenre').innerHTML = game.categories.length > 0 ? game.categories[0]['description'] : '';
     document.getElementById('gameYear').innerHTML = game.release_date;
 })
 
@@ -17,7 +17,7 @@ const search = () => {
 const updatePage = (game) => {
     document.getElementById('gameImage').src = game.header_image;
     document.getElementById('gameTitle').innerHTML = game.name;
-    document.getElementById('gameGenre').innerHTML = game.categories.length > 0 ? game.categories[0] : '';
+    document.getElementById('gameGenre').innerHTML = game.categories.length > 0 ? game.categories[0]['description'] : '';
     document.getElementById('gameYear').innerHTML = game.release_date;
 }
 
