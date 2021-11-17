@@ -10,8 +10,9 @@ eel.get_game_by_title()(x => {
 
 const search = () => {
     let gameTitle = document.getElementById('gameInput').value;
-    const game = eel.get_game_by_title(gameTitle);
-    updatePage(game);
+    eel.get_game_by_title(gameTitle)(game => {
+        updatePage(JSON.parse(game));
+    });
 };
 
 const updatePage = (game) => {

@@ -25,4 +25,4 @@ def post_game_title(title):
 
 @eel.expose
 def get_user_components():
-    return application_manager.user_components
+    return json.dumps(vars(application_manager.user_components))

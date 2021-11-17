@@ -5,13 +5,13 @@ from model.game import Game
 
 
 class GameInfoApi:
-    LIST_URL = 'http://api.steampowered.com/ISteamApps/GetAppList/v0002'
+    LIST_URL = 'http://api.steampowered.com/ISteamApps/GetAppList/v0001'
     DETAILS = 'http://store.steampowered.com/api/appdetails?l=polish&appids='
 
     def get_games(self):
         response = requests.get(self.LIST_URL)
         data = response.json()
-        data = data["applist"]["apps"]
+        data = data["applist"]["apps"]['app']
 
         games = []
         for game in data:
@@ -30,7 +30,8 @@ class GameInfoApi:
         game.header_image = data['header_image']
 
         game.publishers = data['publishers']
-        game.price = data['price_overview']['final_formatted']
+        if 'price_overview' in data:
+            game.price = data['price_overview']['final_formatted']
         game.categories = data['genres']
         game.release_date = data['release_date']['date']
 
