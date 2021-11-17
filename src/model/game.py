@@ -10,6 +10,6 @@ class Game:
     pc_requirements_recommended: Components
     publishers: list
     price: str
-    metacritic_score: int
+    metacritic_score: int = ''
     categories: list
     release_date: str
