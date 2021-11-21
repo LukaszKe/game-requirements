@@ -18,16 +18,20 @@
         </script>
     </head>
     <body class="text-center">
+        
         <main class="form-signin">
             <div class="form-floating">
                 <input type="text" class="form-control" id="gameInput" placeholder="World of Warcraft">
                 <label for="gameInput">Game title</label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" onclick="search()">Search</button>
-            <div class="mt-5 clickable">
+            <svg class="spinner" id="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+            </svg>
+            <div class="mt-5 clickable" id="gameTile">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm position-relative">
                     <div class="col">
-                        <img id="gameImage" src="doodad.png" />
+                        <img id="gameImage" src="" />
                     </div>
                     <div class="col p-5 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary" id="gameGenre">Genre</strong>
@@ -37,5 +41,8 @@
                 </div>
             </div>
         </main>
+        <script>
+            document.getElementById('gameTile').style = 'display:none';
+        </script>
     </body>
 </html>
