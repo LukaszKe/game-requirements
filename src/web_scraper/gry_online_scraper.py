@@ -28,11 +28,13 @@ def scrape(game_title):
     minimal.cpu = requirements[1].split('/')[0].strip()
     minimal.ram = requirements[2].strip()
     minimal.gpu = requirements[3][14:-10].split('/')[0].strip()
+    minimal.free_space = requirements[4].split('GB')[0] + 'GB'
 
     if len(requirements) > 6:
         recommended.cpu = requirements[7].split('/')[0].strip()
         recommended.ram = requirements[8]
         recommended.gpu = requirements[9][14:-10].split('/')[0].strip()
+        recommended.free_space = requirements[10].split('GB')[0] + 'GB'
         return {'minimal': minimal, 'recommended': recommended}
 
     return {'minimal': minimal}
