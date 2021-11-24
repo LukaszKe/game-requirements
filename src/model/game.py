@@ -13,3 +13,9 @@ class Game:
     metacritic_score: int = ''
     categories: list
     release_date: str
+
+    runs: bool
+
+    # delete
+    def __init__(self):
+        self.runs = True
