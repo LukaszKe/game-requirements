@@ -15,7 +15,3 @@ class Game:
     release_date: str
 
     runs: bool
-
-    # delete
-    def __init__(self):
-        self.runs = True

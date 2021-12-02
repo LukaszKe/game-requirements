@@ -9,7 +9,7 @@ def get_components():
     components = Components()
     components.cpu = cpuinfo.get_cpu_info()['brand_raw']
     components.gpu = GPUtil.getGPUs()[0].name
-    components.ram = psutil.virtual_memory().total / 1024 / 1024
-    components.free_space = psutil.disk_usage('/').free / 1024 / 1024
+    components.ram = (psutil.virtual_memory().total / 1024 / 1024) // 1000
+    components.free_space = (psutil.disk_usage('/').free / 1024 / 1024) // 1000
 
     return components

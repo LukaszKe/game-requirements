@@ -19,3 +19,6 @@ class DatabaseManager:
 
     def get_gpu_by_name(self, name):
         return self.session.query(GPU).get(name)
+
+    def get_cpu_by_name_in(self, name):
+        return self.session.query(CPU).filter(CPU.name.like(f'%{name}%')).first()
