@@ -83,4 +83,8 @@ var get_user_components = async function () {
     });
 }
 
+var go_back = () => {
+    window.location.href = 'result_page.html';
+}
+
 get_user_components();
