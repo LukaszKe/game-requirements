@@ -11,10 +11,10 @@ var update_view = function (components, game) {
     document.getElementById('gameGenre').innerHTML = game.categories.length > 0 ? game.categories[0]['description'] : '';
     document.getElementById('gameYear').innerHTML = game.release_date;
 
-    document.getElementById('userProcessor').innerHTML = 'CPU: ' + components.cpu;
-    document.getElementById('userGraphics').innerHTML = 'GPU: ' + components.gpu;
-    document.getElementById('userMemory').innerHTML = 'Ram: ' + components.ram + ' GB';
-    document.getElementById('userSpace').innerHTML = 'Disk space: ' + components.free_space + ' GB';
+    document.getElementById('userProcessor').innerHTML = 'CPU: ' + (components.cpu_ok !== null ? components.cpu : "Not Found");
+    document.getElementById('userGraphics').innerHTML = 'GPU: ' + (components.gpu_ok !== null ? components.gpu : "Not Found");
+    document.getElementById('userMemory').innerHTML = 'Ram: ' + (components.ram_ok !== null ? components.ram : "Not Found") + ' GB';
+    document.getElementById('userSpace').innerHTML = 'Disk space: ' + (components.free_space_ok !== null ? components.free_space + 'GB' : "Not Found");
 
     if (game.hasOwnProperty('pc_requirements_minimum')) {
         min_req = game.pc_requirements_minimum
@@ -38,10 +38,10 @@ var update_view = function (components, game) {
         } else if (min_req.free_space_ok === false) {
             document.getElementById('minimalSpace').style = "color:#ff0000"
         }
-        document.getElementById('minimalProcessor').innerHTML = 'CPU: ' + game.pc_requirements_minimum.cpu;
-        document.getElementById('minimalGraphics').innerHTML = 'GPU: ' + game.pc_requirements_minimum.gpu;
-        document.getElementById('minimalMemory').innerHTML = 'Ram: ' + game.pc_requirements_minimum.ram + ' GB';
-        document.getElementById('minimalSpace').innerHTML = 'Disk space: ' + game.pc_requirements_minimum.free_space + ' GB';
+        document.getElementById('minimalProcessor').innerHTML = 'CPU: ' + (game.pc_requirements_minimum.cpu_ok !== null ? game.pc_requirements_minimum.cpu : "Not Found");
+        document.getElementById('minimalGraphics').innerHTML = 'GPU: ' + (game.pc_requirements_minimum.gpu_ok !== null ? game.pc_requirements_minimum.gpu : "Not Found");
+        document.getElementById('minimalMemory').innerHTML = 'Ram: ' + (game.pc_requirements_minimum.ram_ok !== null ? game.pc_requirements_minimum.ram + ' GB' : "Not Found");
+        document.getElementById('minimalSpace').innerHTML = 'Disk space: ' + (game.pc_requirements_minimum.free_space_ok !== null ? game.pc_requirements_minimum.free_space + ' GB' : "Not Found");
     }
 
     if (game.hasOwnProperty('pc_requirements_recommended')) {
@@ -66,10 +66,10 @@ var update_view = function (components, game) {
         } else if (rec_req.free_space_ok === false) {
             document.getElementById('recommendedSpace').style = "color:#ff0000"
         }
-        document.getElementById('recommendedProcessor').innerHTML = 'CPU: ' + game.pc_requirements_recommended.cpu;
-        document.getElementById('recommendedGraphics').innerHTML = 'GPU: ' + game.pc_requirements_recommended.gpu;
-        document.getElementById('recommendedMemory').innerHTML = 'Ram: ' + game.pc_requirements_recommended.ram + ' GB';
-        document.getElementById('recommendedSpace').innerHTML = 'Disk space: ' + game.pc_requirements_recommended.free_space + ' GB';
+        document.getElementById('recommendedProcessor').innerHTML = 'CPU: ' + (game.pc_requirements_recommended.cpu_ok !== null ? game.pc_requirements_recommended.cpu : "Not Found");
+        document.getElementById('recommendedGraphics').innerHTML = 'GPU: ' + (game.pc_requirements_recommended.gpu_ok !== null ? game.pc_requirements_recommended.gpu : "Not Found");
+        document.getElementById('recommendedMemory').innerHTML = 'Ram: ' + (game.pc_requirements_recommended.ram_ok !== null ? game.pc_requirements_recommended.ram + ' GB' : "Not Found");
+        document.getElementById('recommendedSpace').innerHTML = 'Disk space: ' + (game.pc_requirements_recommended.free_space_ok !== null ? game.pc_requirements_recommended.free_space + ' GB' : "Not Found");
     } else {
         document.getElementById('recommendedProcessor').innerHTML = 'Not found'
     }
