@@ -6,7 +6,7 @@ from model.game import Game
 
 class GameInfoApi:
     LIST_URL = 'http://api.steampowered.com/ISteamApps/GetAppList/v0001'
-    DETAILS = 'http://store.steampowered.com/api/appdetails?l=polish&appids='
+    DETAILS = 'http://store.steampowered.com/api/appdetails?appids='
 
     def get_games(self):
         response = requests.get(self.LIST_URL)
