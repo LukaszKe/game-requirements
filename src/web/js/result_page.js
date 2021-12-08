@@ -21,6 +21,8 @@ eel.get_game_by_title()(x => {
 
 const search = () => {
     let gameTitle = document.getElementById('gameInput').value;
+    document.getElementById('spinner').style = 'display:block';
+    document.getElementById('gameTile').style = 'display:none';
     eel.get_game_by_title(gameTitle)(game => {
         updatePage(JSON.parse(game));
     });
