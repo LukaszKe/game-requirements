@@ -29,8 +29,9 @@ class ApplicationManager:
         if title is None:
             return self.game
 
+        title = title.lower().strip()
         for game in self.games:
-            if game.name.lower() == title.lower():
+            if game.name.lower() == title:
                 self.game = self.check_requirements(game)
                 return self.game
 
