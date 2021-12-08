@@ -7,7 +7,7 @@ from model.components import Components
 
 def scrape(game_title):
     urls = search('gry-online.pl' + ' ' +
-                  game_title, tld="pl", lang="pl", num=10)
+                  game_title, tld="pl", lang="pl", num=5)
     url = next(urls)
     while "gry-online" not in url:
         url = next(urls)

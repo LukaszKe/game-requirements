@@ -16,20 +16,20 @@ var update_view = function (components, game) {
     document.getElementById('userProcessor').innerHTML = 'CPU: ' + components.cpu;
     document.getElementById('userGraphics').innerHTML = 'GPU: ' + components.gpu;
     document.getElementById('userMemory').innerHTML = 'Ram: ' + components.ram + ' GB';
-    document.getElementById('userSpace').innerHTML = 'Disk space: ' + components.free_space + 'GB';
+    document.getElementById('userSpace').innerHTML = 'Disk space: ' + components.free_space + ' GB';
 
     if (game.hasOwnProperty('pc_requirements_minimum')) {
         min_req = game.pc_requirements_minimum
-        if (min_req.gpu_ok === true) {
+        if (min_req.cpu_ok === true) {
             document.getElementById('minimalProcessor').style = "color:#0c7e0c"
-        } else if (min_req.gpu_ok === false) {
+        } else if (min_req.cpu_ok === false) {
             document.getElementById('minimalProcessor').style = "color:#ff0000"
         } else {
             document.getElementById('minimalProcessor').style = "color:#FFA500"
         }
-        if (min_req.cpu_ok === true) {
+        if (min_req.gpu_ok === true) {
             document.getElementById('minimalGraphics').style = "color:#0c7e0c"
-        } else if (min_req.cpu_ok === false) {
+        } else if (min_req.gpu_ok === false) {
             document.getElementById('minimalGraphics').style = "color:#ff0000"
         } else {
             document.getElementById('minimalGraphics').style = "color:#FFA500"
@@ -56,16 +56,16 @@ var update_view = function (components, game) {
 
     if (game.hasOwnProperty('pc_requirements_recommended')) {
         rec_req = game.pc_requirements_recommended
-        if (rec_req.gpu_ok === true) {
+        if (rec_req.cpu_ok === true) {
             document.getElementById('recommendedProcessor').style = "color:#0c7e0c"
-        } else if (rec_req.gpu_ok === false) {
+        } else if (rec_req.cpu_ok === false) {
             document.getElementById('recommendedProcessor').style = "color:#ff0000"
         } else {
             document.getElementById('recommendedProcessor').style = "color:#FFA500"
         }
-        if (rec_req.cpu_ok === true) {
+        if (rec_req.gpu_ok === true) {
             document.getElementById('recommendedGraphics').style = "color:#0c7e0c"
-        } else if (rec_req.cpu_ok === false) {
+        } else if (rec_req.gpu_ok === false) {
             document.getElementById('recommendedGraphics').style = "color:#ff0000"
         } else {
             document.getElementById('recommendedGraphics').style = "color:#FFA500"

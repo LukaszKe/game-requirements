@@ -1,22 +1,24 @@
-let game = 'dawadw'
 
 var found_game = false;
-eel.get_game_by_title()(x => {
-    if (x !== null) {
-        game = JSON.parse(x)
+
+function showInfo(game) {
+    if (game !== null) {
         document.getElementById('gameImage').src = game.header_image;
         document.getElementById('gameTitle').innerHTML = game.name;
         document.getElementById('gameGenre').innerHTML = game.categories.length > 0 ? game.categories[0]['description'] : '';
         document.getElementById('gameYear').innerHTML = game.release_date;
-        document.getElementById('spinner').style = 'display:none';
-        document.getElementById('gameTile').style = 'display:block';
         found_game = true;
     } else {
         document.getElementById('gameTitle').innerHTML = "Niestety nie znaleziono takiej gry";
         found_game = false;
     }
+    document.getElementById('spinner').style = 'display:none';
+    document.getElementById('gameTile').style = 'display:block';
+}
 
-
+eel.get_game_by_title()(x => {
+    let game = JSON.parse(x)
+    showInfo(game);
 })
 
 const search = () => {
@@ -29,10 +31,7 @@ const search = () => {
 };
 
 const updatePage = (game) => {
-    document.getElementById('gameImage').src = game.header_image;
-    document.getElementById('gameTitle').innerHTML = game.name;
-    document.getElementById('gameGenre').innerHTML = game.categories.length > 0 ? game.categories[0]['description'] : '';
-    document.getElementById('gameYear').innerHTML = game.release_date;
+    showInfo(game);
 }
 
 const showGameDetails = () => {

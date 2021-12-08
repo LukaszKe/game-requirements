@@ -54,23 +54,29 @@ class ApplicationManager:
         print(vars(self.user_components))
 
         try:  # comparing gpu
-            user_gpu = self.database_manager.get_gpu_by_name(self.user_components.gpu)
-            required_gpu = self.database_manager.get_gpu_by_name(' '.join(requirements.gpu.split()[2:]))
-            requirements.gpu_ok = user_gpu.gpu_mark >= required_gpu.gpu_mark
-            if runs is not None:
-                runs = runs and requirements.gpu_ok
+            if requirements.gpu:
+                user_gpu = self.database_manager.get_gpu_by_name(self.user_components.gpu)
+                required_gpu = self.database_manager.get_gpu_by_name(' '.join(requirements.gpu.split()[2:]))
+                requirements.gpu_ok = user_gpu.gpu_mark >= required_gpu.gpu_mark
+                if runs is not None:
+                    runs = runs and requirements.gpu_ok
+            else:
+                requirements.gpu_ok = True
         except Exception as ex:
             print(ex)
             runs = None
 
         try:  # comparing cpu
-            user_cpu_name = parse_cpu_name(self.user_components.cpu)
-            user_cpu = self.database_manager.get_cpu_by_name_in(user_cpu_name)
-            required_cpu_name = parse_cpu_name(requirements.cpu)
-            required_cpu = self.database_manager.get_cpu_by_name_in(required_cpu_name)
-            requirements.cpu_ok = user_cpu.cpu_mark >= required_cpu.cpu_mark
-            if runs is not None:
-                runs = runs and requirements.cpu_ok
+            if requirements.cpu:
+                user_cpu_name = parse_cpu_name(self.user_components.cpu)
+                user_cpu = self.database_manager.get_cpu_by_name_in(user_cpu_name)
+                required_cpu_name = parse_cpu_name(requirements.cpu)
+                required_cpu = self.database_manager.get_cpu_by_name_in(required_cpu_name)
+                requirements.cpu_ok = user_cpu.cpu_mark >= required_cpu.cpu_mark
+                if runs is not None:
+                    runs = runs and requirements.cpu_ok
+            else:
+                requirements.cpu_ok = True
         except Exception as ex:
             print(ex)
             runs = None
